@@ -13,6 +13,7 @@ const criarTarefa = (evento) => {
 
   tarefa.innerHTML = conteudo  // na li é adicionado o conteudo da variável da linha 12
 
+  tarefa.appendChild(botaoConclui())
   lista.appendChild(tarefa)  // cria um elemento filho da li que é a tarefa
   input.value = ' ' // após adicionar a tarefa o campo do input é zerado
 
@@ -25,4 +26,11 @@ novaTarefa.addEventListener('click', criarTarefa) // novaTarefa escuta o evento 
 const botaoConclui = () => {
     const botaoConclui = document.createElement('button')
 
+    botaoConclui.classList.add('check-button')
+    botaoConclui.innerText = 'concluir' //representa o conteúdo a ser renderizado
+    botaoConclui.addEventListener('click', () => {
+      console.log('fui clicado') 
+    })
+    
+    return botaoConclui
 }
