@@ -1,4 +1,7 @@
-const criarTarefa = (evento) => {
+import BotaoConclui from "./components/concluiTarefa.js"
+import BotaoDeleta from "./components/deletaTarefa.js"
+
+  const criarTarefa = (evento) => {
   
   evento.preventDefault()
 
@@ -13,7 +16,8 @@ const criarTarefa = (evento) => {
 
   tarefa.innerHTML = conteudo  // na li é adicionado o conteudo da variável da linha 12
 
-  tarefa.appendChild(botaoConclui())
+  tarefa.appendChild(BotaoConclui()) // adiciona a função botaoConclui
+  tarefa.appendChild(BotaoDeleta())
   lista.appendChild(tarefa)  // cria um elemento filho da li que é a tarefa
   input.value = ' ' // após adicionar a tarefa o campo do input é zerado
 
@@ -22,15 +26,3 @@ const criarTarefa = (evento) => {
 const novaTarefa = document.querySelector('[data-form-button]') // novaTarefa pega o seletor data-form-button
 
 novaTarefa.addEventListener('click', criarTarefa) // novaTarefa escuta o evento de click e ao escutar executa o criarTarefa
-
-const botaoConclui = () => {
-    const botaoConclui = document.createElement('button')
-
-    botaoConclui.classList.add('check-button')
-    botaoConclui.innerText = 'concluir' //representa o conteúdo a ser renderizado
-    botaoConclui.addEventListener('click', () => {
-      console.log('fui clicado') 
-    })
-    
-    return botaoConclui
-}
